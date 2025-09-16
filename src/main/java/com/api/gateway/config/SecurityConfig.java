@@ -62,9 +62,6 @@ public class SecurityConfig {
                 .addFilterBefore(authenticationWebFilter, SecurityWebFiltersOrder.AUTHENTICATION)
                 .authorizeExchange(exchanges -> exchanges
                         .pathMatchers("/api/auth/**").permitAll()
-                        .pathMatchers("/api/admin/**").hasAuthority("ADMIN")
-                        .pathMatchers(HttpMethod.PUT, "/api/customers/**").hasAuthority("ADMIN")
-                        .pathMatchers(HttpMethod.DELETE, "/api/customers/**").hasAuthority("ADMIN")
                         .anyExchange().authenticated()
                 )
                 .build();

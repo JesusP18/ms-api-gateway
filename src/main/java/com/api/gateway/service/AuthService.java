@@ -91,18 +91,4 @@ public class AuthService {
     private String rolesToString(Set<Role> roles) {
         return String.join(",", roles.stream().map(Enum::name).toArray(String[]::new));
     }
-
-    /**
-     * Convierte a un usuario en administrador por su username
-     */
-    public Mono<User> makeAdmin(String username) {
-        return userRepository.findByUsername(username)
-                .switchIfEmpty(Mono.error(new RuntimeException("Usuario no encontrado")))
-                .flatMap(user -> {
-                    Set<Role> roles = user.getRoles();
-                    roles.add(Role.ADMIN);
-                    user.setRoles(roles);
-                    return userRepository.save(user);
-                });
-    }
 }
