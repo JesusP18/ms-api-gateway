@@ -1,0 +1,38 @@
+server:
+  port: 8090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: ms-api-gateway
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/customer_business
+  cloud:
+    gateway:
+      routes:
+        - id: customer
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/customers/**
+        - id: products
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/products/**
+        - id: transactions
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/transactions/**
+        - id: movements
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/movements/**
+
+app:
+  jwt:
+    secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
+    expirationMs: 3600000 # 1h

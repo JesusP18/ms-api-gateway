@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "dfa048f2-f842-4e2e-a2f5-691ba0a1b405",
+		"name": "api-gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16696769",
+		"_collection_link": "https://test55-2889.postman.co/workspace/Bootcamp-Microservices~a3bbc382-ed5d-4283-80a1-2235660189e8/collection/16696769-dfa048f2-f842-4e2e-a2f5-691ba0a1b405?action=share&source=collection_link&creator=16696769"
+	},
+	"item": [
+		{
+			"name": "api-gateway Copy",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jesus2\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jesus2\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "make-admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2OGM5Y2NkZWIwODA5NDZhMWNiMDlkODciLCJpYXQiOjE3NTgwNTU5OTgsImV4cCI6MTc1ODA1OTU5OCwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGVzIjoiQURNSU4sVVNFUiJ9.BMFYpar0N8DhVdfnBv8g1_PnYQNWXY7txiGeUdTcM1Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerType\": \"PERSONAL\",\r\n    \"profile\": \"VIP\",\r\n    \"firstName\": \"Juan\",\r\n    \"lastName\": \"Pérez\",\r\n    \"businessName\": \"test\",\r\n    \"dni\": \"88884429\",\r\n    \"ruc\": \"10888844442\",\r\n    \"address\": \"Av. Libertad 123, Lima 2\",\r\n    \"phone\": \"+51 987444111\",\r\n    \"email\": \"juan.perez2@example.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8090/api/admin/make-admin/jesus1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"admin",
+								"make-admin",
+								"jesus1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate-token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/api/auth/validate-token?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2OGM0ZTAyNzRkZDhhMzY0ZTBmNGYyZjAiLCJpYXQiOjE3NTgwNTQ2NDcsImV4cCI6MTc1ODA1ODI0NywidXNlcm5hbWUiOiJqZXN1czEiLCJyb2xlcyI6IlVTRVIsQURNSU4ifQ.VgXM15GjQm6qLmfl28CaHaPQnYwUg_ta5FrluRo3TYo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"auth",
+								"validate-token"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2OGM0ZTAyNzRkZDhhMzY0ZTBmNGYyZjAiLCJpYXQiOjE3NTgwNTQ2NDcsImV4cCI6MTc1ODA1ODI0NywidXNlcm5hbWUiOiJqZXN1czEiLCJyb2xlcyI6IlVTRVIsQURNSU4ifQ.VgXM15GjQm6qLmfl28CaHaPQnYwUg_ta5FrluRo3TYo"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
