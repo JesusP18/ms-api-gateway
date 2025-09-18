@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ms-api-gateway
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8888  # Config Server URI
+  config:
+    import: "optional:configserver:"  # Add this line
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
