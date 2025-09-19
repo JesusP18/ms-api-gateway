@@ -2,12 +2,12 @@ spring:
   application:
     name: ms-api-gateway
   profiles:
-    active: dev
+    active: prod
   cloud:
     config:
-      uri: http://localhost:8888  # Config Server URI
+      uri: http://localhost:8888
   config:
-    import: "optional:configserver:"  # Add this line
+    import: "optional:configserver:"
 
 eureka:
   client:
